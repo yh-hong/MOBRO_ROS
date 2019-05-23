@@ -4,11 +4,14 @@
 <!-- mapping params -->
  <arg name="res" default="0.05"/>
  <arg name="fast" default="true"/>
- <arg name="file" default="test1"/>
+ <arg name="file" default="D_building"/>
 
  <!-- map saver params -->
  <arg name="occ" default="65"/>
  <arg name="free" default="2"/> 
+ 
+ <!--<node name="static_transform_publisher" pkg="tf" type="static_transform_publisher"
+ args="0 0 0 0 0 0 odom laser 1"/>-->
  
   <include file="$(find mobro)/bag/offline_slam.launch">
   
@@ -17,6 +20,7 @@
         <arg name="fast" value="$(arg fast)"/>
         <arg name="file" value="$(arg file)"/>
         <arg name="robot" default="$(find turtlebot_description)/robots/kobuki_hexagons_hokuyo.urdf.xacro"/>
+        <arg name="use_sim_time" value="true" />
         
         <!-- map saver params -->
         <arg name="occ" value="$(arg occ)"/>

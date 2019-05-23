@@ -17,6 +17,7 @@
         <arg name="fast" value="$(arg fast)"/>
         <arg name="file" value="$(arg file)"/>
         <arg name="robot" default="$(find turtlebot3_description)/urdf/turtlebot3_burger.urdf.xacro"/>
+        <arg name="use_sim_time" value="false" />
         
         <!-- map saver params -->
         <arg name="occ" value="$(arg occ)"/>
