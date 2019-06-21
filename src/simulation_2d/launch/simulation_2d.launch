@@ -1,0 +1,22 @@
+<launch>
+
+    <!-- The global parameters of the application. -->
+    <!-- They define the desired circular path and the robot's initial posture -->
+    <param name="robot_description" command="$(find xacro)/xacro $(find turtlebot3_description)/urdf/turtlebot3_burger.urdf.xacro"/>
+
+    <!-- 2D simulation node -->
+    <node pkg="simulation_2d" type="simulation_2d_node" name="simulation">
+    </node>
+
+
+    <!-- tf -->
+    <node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="-2.0062 1.1236 0 0 0 0 /base_link /laser 100" />
+
+    <node pkg="tf" type="static_transform_publisher" name="link2_broadcaster" args="0 0 0 0 0 0 /base_link /base_footprint 100" />
+    <node pkg="tf" type="static_transform_publisher" name="link3_broadcaster" args="0 0 0 0 0 0 /map /odom 100" />
+
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher"/>
+
+
+</launch>
